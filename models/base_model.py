@@ -8,11 +8,11 @@ import models
 class BaseModel:
     """ class BaseModel that defines all common
      attributes/methods for other classes
-     """
+    """
 
     def __init__(self, *args, **kwargs):
         """
-
+            class initialization
         :Args:
             *args (any): Unused.
             **kwargs (dict): Key/value pairs of attributes.
@@ -42,12 +42,10 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """returns a dictionary containing all keys/
-        values of __dict__ of the instance:
+        """returns a dictionary containing all keys/values
         """
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
         obj_dict['created_at'] = self.created_at.isoformat()
         obj_dict['updated_at'] = self.updated_at.isoformat()
         return obj_dict
-
