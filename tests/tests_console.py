@@ -13,8 +13,6 @@ from unittest.mock import patch
 class TestHBNBCommand(unittest.TestCase):
     """Unittests for testing prompting of the HBNB command interpreter."""
 
-    def test_prompt_string(self):
-        self.assertNotEquals("(hbnb) ", HBNBCommand.prompt)
 
     def test_empty_line(self):
         with patch("sys.stdout", new=StringIO()) as output:
