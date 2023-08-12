@@ -26,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
     """Defines HBnB command interpreter.
 
     """
-    
+
     def __init__(self):
         """
         Initialize HBNBCommand
@@ -99,12 +99,12 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(eval(arg_cmd[0])().id)
             storage.save()
-        
+
     def do_show(self, arg):
         """
         Display the string representation
-        of a class instance of a given id.
-        """
+        of a class instance of a given id."""
+
         arg_cmd = self.pre_cmd(arg)
         objdict = storage.all()
         if len(arg_cmd) == 0:
@@ -203,8 +203,9 @@ class HBNBCommand(cmd.Cmd):
         elif type(eval(arg_cmd[2])) == dict:
             obj = obj_dict["{}.{}".format(arg_cmd[0], arg_cmd[1])]
             for key, value in eval(arg_cmd[2]).items():
-                if (key in obj.__class__.__dict__.keys() and
-                        type(obj.__class__.__dict__[key]) in {str, int, float}):
+                hold = obj.__class__.__dict__
+                if (key in hold.keys() and
+                        type(hold[key]) in {str, int, float}):
                     val = type(obj.__class__.__dict__[key])
                     obj.__dict__[key] = val(value)
                 else:
@@ -214,4 +215,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
-
