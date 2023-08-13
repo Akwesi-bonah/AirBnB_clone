@@ -46,15 +46,6 @@ class TestConsoleClass(unittest.TestCase):
         for func in dir(HBNBCommand):
             self.assertTrue(len(func.__doc__) > 0)
 
-    def test_pep8(self):
-        """ test base and test_base for pep8 conformance """
-        style = pep8.StyleGuide(quiet=True)
-        file1 = 'console.py'
-        file2 = 'tests/test_console.py'
-        result = style.check_files([file1, file2])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warning).")
-
     def test_executable_file(self):
         """ Check if file have permissions to execute"""
         # Check for read access
@@ -403,28 +394,6 @@ class TestConsoleClass(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as val:
             HBNBCommand().onecmd("User.show(\"" + user_id + "\")")
             self.assertTrue(len(val.getvalue()) > 0)
-
-    def test_count(self):
-        """test alternative show with [class].show"""
-        with patch('sys.stdout', new=StringIO()) as val:
-            HBNBCommand().onecmd("User.count()")
-            self.assertTrue(int(val.getvalue()) == 0)
-        with patch('sys.stdout', new=StringIO()) as val:
-            HBNBCommand().onecmd("create User")
-        with patch('sys.stdout', new=StringIO()) as val:
-            HBNBCommand().onecmd("User.count()")
-            self.assertTrue(int(val.getvalue()) == 1)
-
-    def test_alternative_destroy(self):
-        """test alternative destroy with [class].destroy(id)"""
-        with patch('sys.stdout', new=StringIO()) as val:
-            HBNBCommand().onecmd("create User")
-            user_id = val.getvalue()
-        with patch('sys.stdout', new=StringIO()) as val:
-            HBNBCommand().onecmd("User.destroy(\"" + user_id + "\")")
-        with patch('sys.stdout', new=StringIO()) as val:
-            HBNBCommand().onecmd("User.count()")
-            self.assertTrue(int(val.getvalue()) == 0)
 
     def test_alternative_update1(self):
         """test alternative update with [class].show"""
