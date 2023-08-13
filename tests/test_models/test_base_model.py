@@ -143,5 +143,6 @@ class TestBaseClass(unittest.TestCase):
         is_exec_true = os.access('models/base_model.py', os.X_OK)
         self.assertTrue(is_exec_true)
 
+
 if __name__ == '__main__':
     unittest.main()
