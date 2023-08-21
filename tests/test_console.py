@@ -14,7 +14,7 @@ import os
 class TestConsoleClass(unittest.TestCase):
     """TestConsoleClass resume
     Args:
-        unittest (): Propertys for unit testing
+        unittest (): Properties for unit testing
     """
 
     maxDiff = None

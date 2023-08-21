@@ -4,10 +4,7 @@ footer {
     width:  100%;
     position: absolute;
     bottom: 0;
-}
-p {
     text-align:  center;
-    right: 0;
-    left: 0;
-    top: 0;
+    line-height:60px
+
 }
