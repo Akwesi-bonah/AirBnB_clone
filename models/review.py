@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""
-This is review class that represents new reviews
-"""
+""" Review module for the HBNB project """
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """ Review subclass that inherits from BaseModel """
+    """ Review classto store review information """
     place_id = ""
     user_id = ""
     text = ""
